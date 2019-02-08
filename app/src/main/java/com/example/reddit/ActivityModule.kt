@@ -1,4 +1,4 @@
-package com.example.twitter
+package com.example.reddit
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

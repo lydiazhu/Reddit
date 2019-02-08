@@ -1,4 +1,4 @@
-package com.example.twitter
+package com.example.reddit
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -1,4 +1,4 @@
-package com.example.twitter
+package com.example.reddit
 
 import android.app.Activity
 import android.app.Application

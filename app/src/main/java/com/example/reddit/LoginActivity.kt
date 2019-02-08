@@ -1,4 +1,4 @@
-package com.example.twitter
+package com.example.reddit
 
 import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
         val editText = findViewById<EditText>(R.id.activity_login_user_name)
         button.setOnClickListener {
             userRepository.insert(User(editText.text.toString()))
-            val intent = Intent(this, TwitterGridActivity::class.java)
+            val intent = Intent(this, RedditGridActivity::class.java)
             intent.flags = FLAG_ACTIVITY_CLEAR_TOP or FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
             finish()

@@ -1,4 +1,4 @@
-package com.example.twitter
+package com.example.reddit
 
 import android.content.Context
 import androidx.room.Room

@@ -1,4 +1,4 @@
-package com.example.twitter
+package com.example.reddit
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                     Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
         } else {
-            val intent = Intent(this, TwitterGridActivity::class.java)
+            val intent = Intent(this, RedditGridActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or
                     Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)

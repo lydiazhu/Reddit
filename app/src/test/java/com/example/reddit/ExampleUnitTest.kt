@@ -1,4 +1,4 @@
-package com.example.twitter
+package com.example.reddit
 
 import org.junit.Test
 

@@ -1,7 +1,6 @@
-package com.example.twitter
+package com.example.reddit
 
 import android.os.AsyncTask
-import androidx.lifecycle.LiveData
 import javax.inject.Inject
 import javax.inject.Singleton
 
