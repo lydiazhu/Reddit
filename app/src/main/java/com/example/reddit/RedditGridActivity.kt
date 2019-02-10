@@ -1,7 +1,10 @@
 package com.example.reddit
 
 import android.content.Context
+import android.opengl.Visibility
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -21,6 +24,7 @@ class RedditGridActivity : AppCompatActivity() {
     private var itemList = ArrayList<RedditItem>()
 
     private var mCompositeDisposable: CompositeDisposable? = null
+    lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -36,6 +40,8 @@ class RedditGridActivity : AppCompatActivity() {
         }
 
         mCompositeDisposable = CompositeDisposable()
+
+        progressBar = findViewById(R.id.progressBar)
 
         mCompositeDisposable?.add(
             redditApi.getAllPosts()
@@ -67,6 +73,8 @@ class RedditGridActivity : AppCompatActivity() {
         val adapter = RedditAdapter(itemList)
 
         gridview.adapter = adapter
+        progressBar.visibility = View.GONE
+
     }
 
     private fun handleError(error: Throwable) {
