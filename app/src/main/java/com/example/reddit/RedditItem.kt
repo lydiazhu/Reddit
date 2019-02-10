@@ -13,13 +13,7 @@ class RedditNewsDataResponse(
     val title: String,
     val thumbnail: String
 )
-//
-//class RedditDataResponse {
-//    val children : List<RedditDataItems>
-//}
-//
-//class RedditDataItems(val data: RedditItem)
-//
+
 class RedditItem (val thumbnail : String,
                   val title : String,
                   val author : String)

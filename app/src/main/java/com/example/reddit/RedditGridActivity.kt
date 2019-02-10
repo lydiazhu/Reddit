@@ -1,17 +1,16 @@
 package com.example.reddit
 
+import android.content.Context
 import android.os.Bundle
-import android.widget.GridLayout
-import android.widget.GridView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.android.AndroidInjection
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.activity_reddit_detailed.*
 import javax.inject.Inject
 
 class RedditGridActivity : AppCompatActivity() {
@@ -28,6 +27,14 @@ class RedditGridActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reddit_grid_view)
 
+        setSupportActionBar(grid_view_toolbar)
+        val extras = intent.extras
+        if (extras != null) {
+            val username = extras.getString("UserName")
+            supportActionBar!!.subtitle = username
+            supportActionBar!!.title = "Reddit Client"
+        }
+
         mCompositeDisposable = CompositeDisposable()
 
         mCompositeDisposable?.add(
@@ -36,6 +43,13 @@ class RedditGridActivity : AppCompatActivity() {
                 .subscribeOn(Schedulers.io())
                 .subscribe(this::handleResponse, this::handleError))
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val sharedPref = getSharedPreferences("LoginActivity", Context.MODE_PRIVATE)
+        supportActionBar!!.subtitle = sharedPref.getString("UserName", "UserName")
+        supportActionBar!!.title = "Reddit Client"
     }
 
     private fun handleResponse(result: RedditNewsResponse) {

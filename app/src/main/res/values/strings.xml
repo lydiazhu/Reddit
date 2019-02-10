@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Twitter</string>
     <string name="title_activity_twitter_grid_activty">TwitterGridActivty</string>
+    <string name="title_activity_reddit_detailed">RedditDetailedActivity</string>
 </resources>
