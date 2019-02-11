@@ -8,7 +8,7 @@ import javax.inject.Singleton
 
 @Module
 class RedditGridModule {
-    
+
     @Provides
     @Singleton
     internal fun getViewModelFactory(redditApi : RedditApi,
