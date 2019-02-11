@@ -11,15 +11,15 @@ class AppModule (private val context: Context) {
 
     @Singleton
     @Provides
-    fun providesUserDatabase(): UserDatabase {
+    fun providesUserDatabase(): RedditDatabase {
         return Room.
-            databaseBuilder(context, UserDatabase::class.java, UserDatabase.TABLE_NAME_USER).
+            databaseBuilder(context, RedditDatabase::class.java, RedditDatabase.TABLE_NAME_USER).
             allowMainThreadQueries().build()
     }
 
     @Singleton
     @Provides
-    fun providesUserDao(userDatabase: UserDatabase) : UserDao {
-        return userDatabase.userDao()
+    fun providesUserDao(redditDatabase: RedditDatabase) : UserDao {
+        return redditDatabase.userDao()
     }
 }

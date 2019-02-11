@@ -56,4 +56,12 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
     implementation 'com.github.bumptech.glide:glide:4.2.0'
     annotationProcessor "com.google.dagger:dagger-compiler:2.15"
+
+    kapt "android.arch.lifecycle:extensions:2.0.0"
+    kapt "android.arch.lifecycle:runtime:2.0.0"
+    implementation "android.arch.lifecycle:extensions:2.0.0"
+    implementation "android.arch.lifecycle:runtime:2.0.0"
+    annotationProcessor "android.arch.lifecycle:compiler:2.0.0"
+
+
 }

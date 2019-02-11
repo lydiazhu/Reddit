@@ -11,6 +11,6 @@ abstract class ActivityModule {
     @ContributesAndroidInjector()
     abstract fun bindMainActivity(): MainActivity
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [RedditGridViewModule::class, RedditGridModule::class])
     abstract fun bindRedditGridActivity() : RedditGridActivity
 }

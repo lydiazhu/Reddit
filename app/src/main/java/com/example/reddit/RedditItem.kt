@@ -1,5 +1,9 @@
 package com.example.reddit
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 class RedditNewsResponse(val data: RedditDataResponse)
 
 class RedditDataResponse(
@@ -14,6 +18,10 @@ class RedditNewsDataResponse(
     val thumbnail: String
 )
 
-class RedditItem (val thumbnail : String,
-                  val title : String,
-                  val author : String)
+@Entity(tableName = RedditDatabase.TABLE_NAME_REDDIT_ITEM)
+class RedditItem(
+//    @PrimaryKey @ColumnInfo(name = "userName") val id : Int,
+    @ColumnInfo(name = "thumbnail") val thumbnail: String,
+    @ColumnInfo(name = "title") val title: String,
+    @ColumnInfo(name = "author") val author: String
+)
