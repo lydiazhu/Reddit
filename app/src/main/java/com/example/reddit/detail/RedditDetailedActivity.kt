@@ -58,8 +58,12 @@ class RedditDetailedActivity : AppCompatActivity(), RedditDetailView {
         detailedContentView.visibility = View.VISIBLE
         titleTextView.text = result[0].data.children[0].data.title
         authorTextView.text = result[0].data.children[0].data.author
-        Glide.with(this).load(result[0].data.children[0].data.preview.images[0].source.url.replace("amp;", ""))
-            .into(imageView)
+        if(result[0].data.children[0].data.preview == null) {
+            imageView.setImageDrawable(getDrawable(R.drawable.ic_launcher_background))
+        } else {
+            Glide.with(this).load(result[0].data.children[0].data.preview.images[0].source.url.replace("amp;", ""))
+                .into(imageView)
+        }
         bodyTextView.text = result[1].data.children[0].data.body
         hideProgressBar()
     }
