@@ -58,7 +58,7 @@ class RedditDetailedActivity : AppCompatActivity() {
         authorTextView.text = it.author
         Glide.with(this).load(it.preview.images[0].source.url.replace("amp;", ""))
             .into(imageView)
-        bodyTextView.text = it.body
+        bodyTextView.text = result[1].data.children[0].data.body
 
     }
 
