@@ -12,7 +12,7 @@ import com.example.reddit.R
 import com.example.reddit.detail.RedditDetailedActivity
 
 
-class RedditGridAdapter (private var redditList: ArrayList<RedditItem>, val permalink: Permalink) : RecyclerView.Adapter<RedditItemViewHolder>() {
+class RedditGridAdapter (private var redditList: List<RedditChildrenResponse>, val permalink: Permalink) : RecyclerView.Adapter<RedditItemViewHolder>() {
     lateinit var context : Context
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RedditItemViewHolder {
         this.context = parent.context
@@ -30,12 +30,12 @@ class RedditGridAdapter (private var redditList: ArrayList<RedditItem>, val perm
     }
 
     override fun onBindViewHolder(holder: RedditItemViewHolder, position: Int) {
-        holder.titleTextView.text =  redditList[position].title
-        holder.authorTextView.text = redditList[position].author
-        if (!redditList[position].thumbnail.contains("http")) {
+        holder.titleTextView.text =  redditList[position].data.title
+        holder.authorTextView.text = redditList[position].data.author
+        if (!redditList[position].data.thumbnail.contains("http")) {
             holder.image.setImageDrawable(context.getDrawable(R.drawable.ic_launcher_background))
         } else {
-            Glide.with(context).load(redditList[position].thumbnail)
+            Glide.with(context).load(redditList[position].data.thumbnail)
                 .apply(RequestOptions().override(600, 600))
                 .into(holder.image)
         }
@@ -44,8 +44,8 @@ class RedditGridAdapter (private var redditList: ArrayList<RedditItem>, val perm
             val intent = Intent(context, RedditDetailedActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or
                     Intent.FLAG_ACTIVITY_CLEAR_TOP
-            val link = redditList[position].permalink
-            permalink.setLink(redditList[position].permalink.substring(1, link.length-1)+".json")
+            val link = redditList[position].data.permalink
+            permalink.setLink(redditList[position].data.permalink.substring(1, link.length-1)+".json")
             context.startActivity(intent)
         }
     }

@@ -42,11 +42,7 @@ class RedditGridActivity : AppCompatActivity(), RedditGridView {
         ViewModelProviders.of(this, viewModelFactory).get(RedditGridViewModel::class.java)
             .getLiveRedditItems().observe(this,
                 Observer<List<RedditChildrenResponse>> { t ->
-                    val items = t.map {
-                        val item = it.data
-                        RedditItem(item.thumbnail, item.title, item.author, item.permalink)
-                    }
-                    setupGridLayout(ArrayList(items))
+                    setupGridLayout(ArrayList(t))
                     hideProgressBar()
                 })
     }
@@ -56,7 +52,7 @@ class RedditGridActivity : AppCompatActivity(), RedditGridView {
         finishAffinity()
     }
 
-    override fun setupGridLayout(redditItems: ArrayList<RedditItem>) {
+    override fun setupGridLayout(redditItems: List<RedditChildrenResponse>) {
         val gridview = findViewById<RecyclerView>(R.id.grid_view)
         val gridLayoutManager = GridLayoutManager(this, 2)
         gridview.layoutManager = gridLayoutManager

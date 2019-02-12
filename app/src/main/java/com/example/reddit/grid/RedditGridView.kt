@@ -1,7 +1,7 @@
 package com.example.reddit.grid
 
 interface RedditGridView {
-    fun setupGridLayout(redditItems: ArrayList<RedditItem>)
+    fun setupGridLayout(redditItems: List<RedditChildrenResponse>)
     fun hideProgressBar()
     fun showErrorDialog()
 }

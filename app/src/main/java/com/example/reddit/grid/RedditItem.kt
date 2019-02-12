@@ -12,10 +12,3 @@ class RedditPostsDataResponse(
     val thumbnail: String,
     val permalink : String
 )
-
-class RedditItem(
-    val thumbnail : String,
-    val title : String,
-    val author : String,
-    val permalink : String
-)

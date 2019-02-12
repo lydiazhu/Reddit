@@ -7,11 +7,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class RedditGridViewModel (
-    redditApi: RedditApi,
-    private val view: RedditGridView) : ViewModel() {
+class RedditGridViewModel (redditApi: RedditApi, private val view: RedditGridView) : ViewModel() {
 
-    private var liveRedditItems : MutableLiveData<List<RedditChildrenResponse>> = MutableLiveData()
+    private var liveRedditItems : MutableLiveData<List<RedditChildrenResponse>>
+            = MutableLiveData()
 
     private var mCompositeDisposable: CompositeDisposable? = CompositeDisposable()
 
@@ -28,14 +27,9 @@ class RedditGridViewModel (
     }
 
     private fun handleResponse(result: RedditPostsResponse) {
-        val redditItems = result.data.children.map {
-            val item = it.data
-            RedditItem(item.thumbnail, item.title, item.author, item.permalink)
-        }
-
         liveRedditItems.value = result.data.children
 
-        view.setupGridLayout(ArrayList(redditItems))
+        view.setupGridLayout(result.data.children)
 
         view.hideProgressBar()
     }

@@ -63,5 +63,7 @@ dependencies {
     implementation "android.arch.lifecycle:runtime:2.0.0"
     annotationProcessor "android.arch.lifecycle:compiler:2.0.0"
 
-
+    testImplementation "com.google.truth:truth:0.42"
+    testImplementation "org.mockito:mockito-core:2.21.0"
+    testImplementation "android.arch.core:core-testing:1.1.1"
 }
