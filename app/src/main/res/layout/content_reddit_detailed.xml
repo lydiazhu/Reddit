@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/activity_reddit_detailed"
-        tools:context="com.example.reddit.RedditDetailedActivity">
+        tools:context="com.example.reddit.detail.RedditDetailedActivity">
 
     <ScrollView
             android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                 android:layout_height="match_parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 tools:showIn="@layout/activity_reddit_detailed"
-                tools:context="com.example.reddit.RedditDetailedActivity">
+                tools:context="com.example.reddit.detail.RedditDetailedActivity">
 
         <ImageView
                 android:id="@+id/reddit_detail_image_view"

@@ -1,4 +1,4 @@
-package com.example.reddit
+package com.example.reddit.grid
 
 import android.app.AlertDialog
 import android.content.Context
@@ -10,16 +10,23 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.reddit.Permalink
+import com.example.reddit.R
+import com.example.reddit.RedditChildrenResponse
+import com.example.reddit.RedditItem
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_reddit_grid_view.*
 import javax.inject.Inject
 
-class RedditGridActivity : AppCompatActivity(), RedditGridContract.View {
+class RedditGridActivity : AppCompatActivity(), RedditGridView {
 
     @Inject
-    lateinit var viewModelFactory: ViewModelFactory
+    lateinit var viewModelFactory: GridViewModelFactory
 
-    lateinit var progressBar: ProgressBar
+    @Inject
+    lateinit var permalink: Permalink
+
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
@@ -33,7 +40,7 @@ class RedditGridActivity : AppCompatActivity(), RedditGridContract.View {
         supportActionBar!!.title = "Reddit Client"
 
         progressBar = findViewById(R.id.progressBar)
-        ViewModelProviders.of(this, viewModelFactory).get(RedditViewModel::class.java)
+        ViewModelProviders.of(this, viewModelFactory).get(RedditGridViewModel::class.java)
             .getLiveRedditItems().observe(this,
                 Observer<List<RedditChildrenResponse>> { t ->
                     val items = t.map {
@@ -54,7 +61,7 @@ class RedditGridActivity : AppCompatActivity(), RedditGridContract.View {
         val gridview = findViewById<RecyclerView>(R.id.grid_view)
         val gridLayoutManager = GridLayoutManager(this, 2)
         gridview.layoutManager = gridLayoutManager
-        val adapter = RedditAdapter(redditItems)
+        val adapter = RedditGridAdapter(redditItems, permalink)
         gridview.adapter = adapter
     }
 

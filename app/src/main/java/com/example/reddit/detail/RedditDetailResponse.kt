@@ -1,4 +1,4 @@
-package com.example.reddit
+package com.example.reddit.detail
 
 class RedditDetailResponse(val data: RedditDetailDataResponse)
 

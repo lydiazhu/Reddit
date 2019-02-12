@@ -1,5 +1,6 @@
 package com.example.reddit
 
+import com.example.reddit.detail.RedditDetailResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Url

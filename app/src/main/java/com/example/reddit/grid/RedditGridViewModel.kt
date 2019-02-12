@@ -1,14 +1,18 @@
-package com.example.reddit
+package com.example.reddit.grid
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.reddit.RedditApi
+import com.example.reddit.RedditChildrenResponse
+import com.example.reddit.RedditItem
+import com.example.reddit.RedditNewsResponse
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class RedditViewModel (
+class RedditGridViewModel (
     redditApi: RedditApi,
-    private val view: RedditGridContract.View) : ViewModel() {
+    private val view: RedditGridView) : ViewModel() {
 
     private var liveRedditItems : MutableLiveData<List<RedditChildrenResponse>> = MutableLiveData()
 
@@ -47,5 +51,4 @@ class RedditViewModel (
     override fun onCleared() {
         mCompositeDisposable!!.clear()
     }
-
 }

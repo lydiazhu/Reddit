@@ -3,6 +3,7 @@ package com.example.reddit
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.reddit.grid.RedditGridActivity
 import dagger.android.AndroidInjection
 import javax.inject.Inject
 

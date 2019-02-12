@@ -22,4 +22,10 @@ class AppModule (private val context: Context) {
     fun providesUserDao(redditDatabase: RedditDatabase) : UserDao {
         return redditDatabase.userDao()
     }
+
+    @Singleton
+    @Provides
+    fun providesPermalink() : Permalink {
+        return Permalink()
+    }
 }

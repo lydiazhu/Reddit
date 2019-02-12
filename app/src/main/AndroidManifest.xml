@@ -14,7 +14,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".RedditDetailedActivity"
+                android:name=".detail.RedditDetailedActivity"
                 android:label="@string/title_activity_reddit_detailed"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".RedditGridActivity"
+                android:name=".grid.RedditGridActivity"
                 android:label="@string/title_activity_reddit_grid_activty"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
