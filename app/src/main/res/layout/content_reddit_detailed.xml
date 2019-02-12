@@ -9,4 +9,44 @@
         tools:showIn="@layout/activity_reddit_detailed"
         tools:context="com.example.reddit.RedditDetailedActivity">
 
+    <ImageView
+            android:id="@+id/reddit_detail_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:src="@drawable/ic_launcher_background"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+            android:id="@+id/reddit_detail_title_text"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            tools:text="Title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reddit_detail_image_view"/>
+
+    <TextView
+            android:id="@+id/reddit_detail_author_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Author"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reddit_detail_title_text"/>
+
+    <TextView
+            android:id="@+id/reddit_detail_content_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reddit_detail_author_text"/>
+
+    <TextView
+            android:id="@+id/reddit_detail_body_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="body"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reddit_detail_content_text"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,7 +27,7 @@
         </activity>
         <activity
                 android:name=".RedditGridActivity"
-                android:label="@string/title_activity_twitter_grid_activty"
+                android:label="@string/title_activity_reddit_grid_activty"
                 android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity

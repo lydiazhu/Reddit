@@ -8,7 +8,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
-class NetworkModule() {
+class NetworkModule {
 
     @Provides
     @Singleton

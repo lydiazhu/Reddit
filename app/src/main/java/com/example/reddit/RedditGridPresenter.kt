@@ -21,7 +21,7 @@ class RedditGridPresenter(private val redditApi : RedditApi, private val view: R
     private fun handleResponse(result: RedditNewsResponse) {
         val redditItems = result.data.children.map {
             val item = it.data
-            RedditItem(item.thumbnail, item.title, item.author)
+            RedditItem(item.thumbnail, item.title, item.author, item.permalink)
         }
 
         itemList = ArrayList(redditItems)

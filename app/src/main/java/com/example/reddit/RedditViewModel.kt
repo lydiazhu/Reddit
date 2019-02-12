@@ -6,8 +6,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class RedditViewModel (private val redditApi: RedditApi,
-                       private val view: RedditGridContract.View) : ViewModel() {
+class RedditViewModel (
+    redditApi: RedditApi,
+    private val view: RedditGridContract.View) : ViewModel() {
 
     private var liveRedditItems : MutableLiveData<List<RedditChildrenResponse>> = MutableLiveData()
 
@@ -28,7 +29,7 @@ class RedditViewModel (private val redditApi: RedditApi,
     private fun handleResponse(result: RedditNewsResponse) {
         val redditItems = result.data.children.map {
             val item = it.data
-            RedditItem(item.thumbnail, item.title, item.author)
+            RedditItem(item.thumbnail, item.title, item.author, item.permalink)
         }
 
         liveRedditItems.value = result.data.children
@@ -41,6 +42,10 @@ class RedditViewModel (private val redditApi: RedditApi,
     private fun handleError(error: Throwable) {
         view.showErrorDialog()
         view.hideProgressBar()
+    }
+
+    override fun onCleared() {
+        mCompositeDisposable!!.clear()
     }
 
 }

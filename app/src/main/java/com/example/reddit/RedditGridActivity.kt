@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.android.AndroidInjection
-import kotlinx.android.synthetic.main.activity_reddit_detailed.*
 import kotlinx.android.synthetic.main.activity_reddit_grid_view.*
 import javax.inject.Inject
 
@@ -39,11 +38,10 @@ class RedditGridActivity : AppCompatActivity(), RedditGridContract.View {
                 Observer<List<RedditChildrenResponse>> { t ->
                     val items = t.map {
                         val item = it.data
-                        RedditItem(item.thumbnail, item.title, item.author)
+                        RedditItem(item.thumbnail, item.title, item.author, item.permalink)
                     }
                     setupGridLayout(ArrayList(items))
                     hideProgressBar()
-
                 })
     }
 
