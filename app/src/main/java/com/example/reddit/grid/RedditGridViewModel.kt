@@ -3,9 +3,6 @@ package com.example.reddit.grid
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.reddit.RedditApi
-import com.example.reddit.RedditChildrenResponse
-import com.example.reddit.RedditItem
-import com.example.reddit.RedditNewsResponse
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -30,7 +27,7 @@ class RedditGridViewModel (
         return liveRedditItems
     }
 
-    private fun handleResponse(result: RedditNewsResponse) {
+    private fun handleResponse(result: RedditPostsResponse) {
         val redditItems = result.data.children.map {
             val item = it.data
             RedditItem(item.thumbnail, item.title, item.author, item.permalink)

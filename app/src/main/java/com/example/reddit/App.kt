@@ -16,7 +16,6 @@ class App : Application(), HasActivityInjector , LifecycleObserver{
         super.onCreate()
         DaggerAppComponent
             .builder()
-            .appModule(AppModule(this))
             .build()
             .inject(this)
     }

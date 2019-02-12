@@ -14,9 +14,6 @@ import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var userRepository: UserRepository
-
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
@@ -29,7 +26,6 @@ class LoginActivity : AppCompatActivity() {
                 putString("UserName", editText.text.toString())
                 apply()
             }
-            userRepository.insert(User(editText.text.toString()))
             val intent = Intent(this, RedditGridActivity::class.java)
             intent.flags = FLAG_ACTIVITY_CLEAR_TOP or FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)

@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.reddit.Permalink
 import com.example.reddit.R
-import com.example.reddit.RedditChildrenResponse
-import com.example.reddit.RedditItem
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_reddit_grid_view.*
 import javax.inject.Inject

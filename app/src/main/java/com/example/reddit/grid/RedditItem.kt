@@ -1,12 +1,12 @@
-package com.example.reddit
+package com.example.reddit.grid
 
-class RedditNewsResponse(val data: RedditDataResponse)
+class RedditPostsResponse(val data: RedditDataResponse)
 
 class RedditDataResponse(val children: List<RedditChildrenResponse>)
 
-class RedditChildrenResponse(val data: RedditNewsDataResponse)
+class RedditChildrenResponse(val data: RedditPostsDataResponse)
 
-class RedditNewsDataResponse(
+class RedditPostsDataResponse(
     val author: String,
     val title: String,
     val thumbnail: String,
