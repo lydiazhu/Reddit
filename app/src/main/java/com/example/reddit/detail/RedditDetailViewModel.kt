@@ -8,7 +8,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 
-class RedditDetailViewModel(private val redditApi: RedditApi, val view : RedditDetailView, val permalink: Permalink) : ViewModel() {
+class RedditDetailViewModel(redditApi: RedditApi, private val view : RedditDetailView, val permalink: Permalink) : ViewModel() {
 
         private var liveRedditItems : MutableLiveData<List<RedditDetailResponse>> = MutableLiveData()
 
@@ -33,7 +33,7 @@ class RedditDetailViewModel(private val redditApi: RedditApi, val view : RedditD
         }
 
         private fun handleError(error: Throwable) {
-            error
+            view.showErrorDialog()
         }
 
         override fun onCleared() {

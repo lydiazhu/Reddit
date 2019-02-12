@@ -32,8 +32,8 @@ class RedditGridAdapter (private var redditList: ArrayList<RedditItem>, val perm
     }
 
     override fun onBindViewHolder(holder: RedditItemViewHolder, position: Int) {
-        holder.titleTextView.text =  "Title: " + redditList[position].title
-        holder.authorTextView.text = "Author: " + redditList[position].author
+        holder.titleTextView.text =  redditList[position].title
+        holder.authorTextView.text = redditList[position].author
         if (!redditList[position].thumbnail.contains("http")) {
             holder.image.setImageDrawable(context.getDrawable(R.drawable.ic_launcher_background))
         } else {
