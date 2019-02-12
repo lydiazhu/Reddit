@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.reddit.LoginActivity
 import com.example.reddit.Permalink
 import com.example.reddit.R
 import dagger.android.AndroidInjection
@@ -33,9 +34,9 @@ class RedditGridActivity : AppCompatActivity(), RedditGridView {
 
         setSupportActionBar(grid_view_toolbar)
 
-        val sharedPref = getSharedPreferences("LoginActivity", Context.MODE_PRIVATE)
-        supportActionBar!!.subtitle = sharedPref.getString("UserName", "UserName")
-        supportActionBar!!.title = "Reddit Client"
+        val sharedPref = getSharedPreferences(LoginActivity::class.java.name, Context.MODE_PRIVATE)
+        supportActionBar!!.subtitle = sharedPref.getString(getString(R.string.user_name), null)
+        supportActionBar!!.title = getString(R.string.app_project_title)
 
         progressBar = findViewById(R.id.progressBar)
         ViewModelProviders.of(this, viewModelFactory).get(RedditGridViewModel::class.java)
@@ -69,7 +70,7 @@ class RedditGridActivity : AppCompatActivity(), RedditGridView {
 
     override fun showErrorDialog() {
         val builder = AlertDialog.Builder(this)
-        builder.setMessage("Sorry. We are having trouble loading data.")
+        builder.setMessage(getString(R.string.error_message))
         // Create the AlertDialog object and return it
         builder.create()
         builder.show()

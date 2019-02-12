@@ -11,8 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
+import com.example.reddit.LoginActivity
 import com.example.reddit.R
-import com.example.reddit.RedditDetailViewModel
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_reddit_detailed.*
 import javax.inject.Inject
@@ -35,9 +35,9 @@ class RedditDetailedActivity : AppCompatActivity(), RedditDetailView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reddit_detailed)
         setSupportActionBar(reddit_detail_toolbar)
-        val sharedPref = getSharedPreferences("LoginActivity", Context.MODE_PRIVATE)
-        supportActionBar!!.subtitle = sharedPref.getString("UserName", "UserName")
-        supportActionBar!!.title = "Reddit Client"
+        val sharedPref = getSharedPreferences(LoginActivity::class.java.name, Context.MODE_PRIVATE)
+        supportActionBar!!.subtitle = sharedPref.getString(getString(R.string.user_name), null)
+        supportActionBar!!.title = getString(R.string.app_project_title)
 
         titleTextView = findViewById(R.id.reddit_detail_title_text)
         authorTextView = findViewById(R.id.reddit_detail_author_text)
@@ -74,7 +74,7 @@ class RedditDetailedActivity : AppCompatActivity(), RedditDetailView {
 
     override fun showErrorDialog() {
         val builder = AlertDialog.Builder(this)
-        builder.setMessage("Sorry. We are having trouble loading data.")
+        builder.setMessage(getString(R.string.error_message))
         // Create the AlertDialog object and return it
         builder.create()
         builder.show()

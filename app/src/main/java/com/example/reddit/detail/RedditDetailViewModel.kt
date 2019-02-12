@@ -1,9 +1,9 @@
-package com.example.reddit
+package com.example.reddit.detail
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.reddit.detail.RedditDetailResponse
-import com.example.reddit.detail.RedditDetailView
+import com.example.reddit.Permalink
+import com.example.reddit.RedditApi
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

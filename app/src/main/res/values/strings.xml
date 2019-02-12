@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Reddit</string>
+    <string name="app_name">Reddit Client</string>
     <string name="title_activity_reddit_grid_activty">RedditGridActivty</string>
     <string name="title_activity_reddit_detailed">RedditDetailedActivity</string>
+    <string name="user_name">UserName</string>
+    <string name="error_message">Sorry. We are having trouble loading data.</string>
+    <string name="app_project_title">Reddit Client</string>
 </resources>

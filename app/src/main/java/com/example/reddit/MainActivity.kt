@@ -2,11 +2,10 @@ package com.example.reddit
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.reddit.grid.RedditGridActivity
 import dagger.android.AndroidInjection
-import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,8 +18,8 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        val sharedPref = getSharedPreferences("LoginActivity", Context.MODE_PRIVATE)
-        val username = sharedPref.getString("UserName", null)
+        val sharedPref = getSharedPreferences(LoginActivity::class.java.name, Context.MODE_PRIVATE)
+        val username = sharedPref.getString(getString(R.string.user_name), null)
         if(username.isNullOrEmpty()) {
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or

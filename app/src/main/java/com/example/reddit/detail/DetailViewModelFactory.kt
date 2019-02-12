@@ -3,8 +3,6 @@ package com.example.reddit.detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.reddit.*
-import com.example.reddit.grid.RedditGridView
-import com.example.reddit.grid.RedditGridViewModel
 import javax.inject.Inject
 
 class DetailViewModelFactory @Inject constructor(private val redditApi: RedditApi,
@@ -19,5 +17,4 @@ class DetailViewModelFactory @Inject constructor(private val redditApi: RedditAp
         }
         throw IllegalArgumentException("Unknown class name")
     }
-
 }

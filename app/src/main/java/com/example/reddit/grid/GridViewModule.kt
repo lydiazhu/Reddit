@@ -11,8 +11,7 @@ class GridViewModelModule {
     @Provides
     @Singleton
     fun provideViewModelFactory(redditApi : RedditApi,
-                                girdView : RedditGridView
-    ): ViewModelProvider.Factory {
+                                girdView : RedditGridView): ViewModelProvider.Factory {
         return GridViewModelFactory(redditApi, girdView)
     }
 }

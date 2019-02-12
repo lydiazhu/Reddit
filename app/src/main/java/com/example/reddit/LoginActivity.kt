@@ -10,7 +10,6 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.reddit.grid.RedditGridActivity
 import dagger.android.AndroidInjection
-import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,9 +20,9 @@ class LoginActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.activity_login_login_button)
         val editText = findViewById<EditText>(R.id.activity_login_user_name)
         button.setOnClickListener {
-            val sharedPref = getSharedPreferences("LoginActivity", Context.MODE_PRIVATE)
+            val sharedPref = getSharedPreferences(LoginActivity::class.java.name, Context.MODE_PRIVATE)
             with (sharedPref.edit()) {
-                putString("UserName", editText.text.toString())
+                putString(getString(R.string.user_name), editText.text.toString())
                 apply()
             }
             val intent = Intent(this, RedditGridActivity::class.java)

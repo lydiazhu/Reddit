@@ -7,8 +7,7 @@ class RedditDetailDataResponse(val children: List<RedditDetailChildrenResponse>)
 class RedditDetailChildrenResponse(val data: RedditDetailChildrenDataResponse)
 
 class RedditDetailChildrenDataResponse (
-    val preview : RedditPreviewResponse =
-        RedditPreviewResponse(listOf(RedditImageResponse(RedditSourceResponse("No Image")))),
+    val preview : RedditPreviewResponse,
     val author : String,
     val title : String,
     val body : String

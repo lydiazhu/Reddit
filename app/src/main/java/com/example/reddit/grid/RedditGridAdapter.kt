@@ -9,7 +9,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.reddit.Permalink
 import com.example.reddit.R
-import com.example.reddit.RedditItemViewHolder
 import com.example.reddit.detail.RedditDetailedActivity
 
 
