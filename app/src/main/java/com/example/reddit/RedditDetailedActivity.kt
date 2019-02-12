@@ -56,8 +56,7 @@ class RedditDetailedActivity : AppCompatActivity() {
 
         titleTextView.text = it.title
         authorTextView.text = it.author
-        Glide.with(this).load(it.preview.images[0].source.url)
-            .apply(RequestOptions().override(600, 600))
+        Glide.with(this).load(it.preview.images[0].source.url.replace("amp;", ""))
             .into(imageView)
         bodyTextView.text = it.body
 
@@ -66,5 +65,4 @@ class RedditDetailedActivity : AppCompatActivity() {
     private fun handleError(error: Throwable) {
         error.localizedMessage
     }
-
 }
