@@ -30,7 +30,6 @@ class LoginActivity : AppCompatActivity() {
             }
             userRepository.insert(User(editText.text.toString()))
             val intent = Intent(this, RedditGridActivity::class.java)
-            intent.putExtra("UserName", editText.text.toString())
             intent.flags = FLAG_ACTIVITY_CLEAR_TOP or FLAG_ACTIVITY_NEW_TASK or FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
             finish()

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_reddit_detailed.*
+import kotlinx.android.synthetic.main.activity_reddit_grid_view.*
 import javax.inject.Inject
 
 class RedditGridActivity : AppCompatActivity(), RedditGridContract.View {
@@ -27,12 +28,10 @@ class RedditGridActivity : AppCompatActivity(), RedditGridContract.View {
         setContentView(R.layout.activity_reddit_grid_view)
 
         setSupportActionBar(grid_view_toolbar)
-        val extras = intent.extras
-        if (extras != null) {
-            val username = extras.getString("UserName")
-            supportActionBar!!.subtitle = username
-            supportActionBar!!.title = "Reddit Client"
-        }
+
+        val sharedPref = getSharedPreferences("LoginActivity", Context.MODE_PRIVATE)
+        supportActionBar!!.subtitle = sharedPref.getString("UserName", "UserName")
+        supportActionBar!!.title = "Reddit Client"
 
         progressBar = findViewById(R.id.progressBar)
         ViewModelProviders.of(this, viewModelFactory).get(RedditViewModel::class.java)
@@ -46,13 +45,6 @@ class RedditGridActivity : AppCompatActivity(), RedditGridContract.View {
                     hideProgressBar()
 
                 })
-    }
-
-    override fun onResume() {
-        super.onResume()
-        val sharedPref = getSharedPreferences("LoginActivity", Context.MODE_PRIVATE)
-        supportActionBar!!.subtitle = sharedPref.getString("UserName", "UserName")
-        supportActionBar!!.title = "Reddit Client"
     }
 
     override fun onBackPressed() {
