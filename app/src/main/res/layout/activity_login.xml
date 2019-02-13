@@ -12,7 +12,7 @@
             android:id="@+id/activity_login_user_name"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:hint="Enter Username"
+            android:hint="@string/enter_user_name"
             android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:maxLength="20"
             android:background="@color/colorPrimary"

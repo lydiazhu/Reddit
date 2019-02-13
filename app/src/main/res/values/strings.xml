@@ -5,4 +5,5 @@
     <string name="user_name">UserName</string>
     <string name="error_message">Sorry. We are having trouble loading data.</string>
     <string name="app_project_title">Reddit Client</string>
+    <string name="enter_user_name">Enter user name</string>
 </resources>

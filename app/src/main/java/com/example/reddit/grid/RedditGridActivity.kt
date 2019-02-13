@@ -42,7 +42,7 @@ class RedditGridActivity : AppCompatActivity(), RedditGridView {
         ViewModelProviders.of(this, viewModelFactory).get(RedditGridViewModel::class.java)
             .getLiveRedditItems().observe(this,
                 Observer<List<RedditChildrenResponse>> { t ->
-                    setupGridLayout(ArrayList(t))
+                    setupGridLayout(t)
                     hideProgressBar()
                 })
     }

@@ -7,11 +7,12 @@ import com.example.reddit.testObserver
 import io.reactivex.Observable
 import org.junit.Rule
 import org.junit.Test
+import org.mockito.ArgumentMatchers
 import org.mockito.Mock
-import org.mockito.Mockito.`when`
-import org.mockito.Mockito.verify
+import org.mockito.Mockito.*
 import org.mockito.junit.MockitoJUnit
 import org.mockito.junit.MockitoRule
+import java.lang.Exception
 
 class RedditGridViewModelTest {
     @get:Rule
@@ -51,6 +52,17 @@ class RedditGridViewModelTest {
                 verify(view).setupGridLayout(f)
             }
         }
+        verify(view).hideProgressBar()
+    }
+
+    @Test
+    fun `when response has error should show error dialog and hide progress bar`() {
+        `when`(redditApi.getAllPosts()).thenReturn(Observable.error<RedditPostsResponse>(Exception()))
+        classUnderTest = RedditGridViewModel(redditApi, view)
+        classUnderTest.getLiveRedditItems().testObserver()
+
+        verify(view, never()).setupGridLayout(ArgumentMatchers.anyList())
+        verify(view).showErrorDialog()
         verify(view).hideProgressBar()
     }
 }
