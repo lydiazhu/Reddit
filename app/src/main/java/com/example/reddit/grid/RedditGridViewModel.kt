@@ -28,10 +28,7 @@ class RedditGridViewModel (redditApi: RedditApi, private val view: RedditGridVie
 
     private fun handleResponse(result: RedditPostsResponse) {
         liveRedditItems.value = result.data.children
-
         view.setupGridLayout(result.data.children)
-
-        view.hideProgressBar()
     }
 
     private fun handleError(error: Throwable) {

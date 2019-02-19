@@ -34,6 +34,7 @@ class RedditDetailViewModel(redditApi: RedditApi, private val view : RedditDetai
 
         private fun handleError(error: Throwable) {
             view.showErrorDialog()
+            view.hideProgressBar()
         }
 
         override fun onCleared() {

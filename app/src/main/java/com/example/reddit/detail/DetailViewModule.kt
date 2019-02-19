@@ -9,6 +9,7 @@ import javax.inject.Singleton
 
 @Module
 class DetailViewModelModule {
+
     @Provides
     @Singleton
     fun provideViewModelFactory(redditApi : RedditApi,

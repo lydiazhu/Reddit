@@ -58,6 +58,7 @@ class RedditGridActivity : AppCompatActivity(), RedditGridView {
         gridview.layoutManager = gridLayoutManager
         val adapter = RedditGridAdapter(redditItems, permalink)
         gridview.adapter = adapter
+        hideProgressBar()
     }
 
     override fun hideProgressBar() {
